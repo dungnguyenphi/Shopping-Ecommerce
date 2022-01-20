@@ -1,11 +1,12 @@
 import { Formik, Form } from "formik";
-import "./styles.scss";
 import * as Yup from "yup";
 import { FormInput } from "../FormInput/FormInput";
 import { CustomButton } from "../CustomButton/CustomButton";
 import { auth, signInWithGoogle } from "../../FireBase/FireBaseUtil";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { ButtonsContainer, SigninContainer } from "./SignInStyles";
+import { Title } from "../SignUp/SignUpStyles";
 
 export const SignInComponent = () => {
   const navigate = useNavigate();
@@ -27,8 +28,8 @@ export const SignInComponent = () => {
     }
   };
   return (
-    <div className="sign-in">
-      <h2>I already have an account</h2>
+    <SigninContainer>
+      <Title>I already have an account</Title>
       <span>Sign in with your email and password</span>
       <Formik
         initialValues={{ email: "", password: "" }}
@@ -49,7 +50,7 @@ export const SignInComponent = () => {
               label="Password"
               value={values.password}
             />
-            <div className="buttons">
+            <ButtonsContainer>
               <CustomButton type="submit">Sign In</CustomButton>
               <CustomButton
                 onClick={signInWithGoogle}
@@ -58,10 +59,10 @@ export const SignInComponent = () => {
               >
                 Sign In With Google
               </CustomButton>
-            </div>
+            </ButtonsContainer>
           </Form>
         )}
       </Formik>
-    </div>
+    </SigninContainer>
   );
 };

@@ -1,10 +1,10 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import "./styles.scss";
 import * as Yup from "yup";
-import { Formik, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import { auth, createUserProfileDocument } from "../../FireBase/FireBaseUtil";
 import { FormInput } from "../FormInput/FormInput";
 import { CustomButton } from "../CustomButton/CustomButton";
+import { SignUpContainer, Title } from "./SignUpStyles";
 
 export const SignUp = () => {
   const SignupSchema = Yup.object().shape({
@@ -33,8 +33,8 @@ export const SignUp = () => {
     }
   };
   return (
-    <div className="sign-up">
-      <h2 className="title">I do not have an account</h2>
+    <SignUpContainer>
+      <Title>I do not have an account</Title>
       <span>Sign up with your email and password</span>
       <Formik
         initialValues={{
@@ -76,6 +76,6 @@ export const SignUp = () => {
           </Form>
         )}
       </Formik>
-    </div>
+    </SignUpContainer>
   );
 };

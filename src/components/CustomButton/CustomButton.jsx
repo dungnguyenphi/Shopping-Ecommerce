@@ -1,18 +1,7 @@
-import "./styles.scss";
-export const CustomButton = ({
-  children,
-  isGoogleSignIn,
-  inverted,
-  ...otherProps
-}) => {
+import { CustomButtonContainer } from "./CustomStyles";
+
+export const CustomButton = ({ children, ...otherProps }) => {
   return (
-    <button
-      className={`${isGoogleSignIn ? "google-sign-in" : ""} ${
-        inverted ? "inverted" : ""
-      } custom-button`}
-      {...otherProps}
-    >
-      {children}
-    </button>
+    <CustomButtonContainer {...otherProps}>{children}</CustomButtonContainer>
   );
 };

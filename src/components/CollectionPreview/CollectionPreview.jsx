@@ -1,16 +1,28 @@
+import { useNavigate } from "react-router-dom";
 import { CollectionItem } from "../CollectionItem/CollectionItem";
-import "./styles.scss";
-export const CollectionPreview = ({ title, items }) => {
+import {
+  CollectionPreviewContainer,
+  CollectionPreviewTitle,
+  PreviewContainer,
+} from "./CollectionPreviewStyles";
+export const CollectionPreview = ({ title, items, routeName }) => {
+  const navigate = useNavigate();
   return (
-    <div className="collection-preview">
-      <h1 className="title">{title.toUpperCase()}</h1>
-      <div className="preview">
+    <CollectionPreviewContainer>
+      <CollectionPreviewTitle
+        onClick={() => {
+          navigate(`/shop/${routeName}`);
+        }}
+      >
+        {title}
+      </CollectionPreviewTitle>
+      <PreviewContainer>
         {items
           .filter((i, index) => index < 4)
           .map((i) => (
             <CollectionItem key={i.id} item={i} />
           ))}
-      </div>
-    </div>
+      </PreviewContainer>
+    </CollectionPreviewContainer>
   );
 };

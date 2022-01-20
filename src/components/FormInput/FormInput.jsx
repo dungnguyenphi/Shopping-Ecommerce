@@ -1,22 +1,23 @@
-import { ErrorMessage, Field } from "formik";
-import "./styles.scss";
+import { ErrorMessage } from "formik";
+import {
+  ErrorContainer,
+  FormField,
+  GroupContainer,
+  InputLabel,
+} from "./FormInputStyles";
 
-export const FormInput = ({ label, name, ...otherProps }) => {
+export const FormInput = ({ label, name, value, ...otherProps }) => {
   return (
-    <div className="group">
-      <Field className="form-input" {...otherProps} name={name} />
+    <GroupContainer>
+      <FormField {...otherProps} name={name} />
       {label ? (
-        <label
-          className={`${
-            otherProps.value?.length ? "shrink" : ""
-          } form-input-label`}
-        >
+        <InputLabel className="form-input-label" value={value}>
           {label}
-        </label>
+        </InputLabel>
       ) : null}
-      <label className="error">
+      <ErrorContainer>
         <ErrorMessage name={name} />
-      </label>
-    </div>
+      </ErrorContainer>
+    </GroupContainer>
   );
 };
