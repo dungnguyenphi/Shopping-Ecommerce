@@ -1,15 +1,20 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { sectionList } from "../dummyData";
 
 const initialState = {
-  sections: sectionList,
+  sections: [],
 };
 
 const directorySlice = createSlice({
   name: "directory",
   initialState,
-  reducers: {},
+  reducers: {
+    updateSections: (state, action) => {
+      state.sections = action.payload;
+    },
+  },
 });
+
+export const { updateSections } = directorySlice.actions;
 
 export default directorySlice.reducer;
 

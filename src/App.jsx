@@ -3,7 +3,7 @@ import { Header } from "./components";
 import { auth, createUserProfileDocument } from "./FireBase/FireBaseUtil";
 import { useEffect } from "react";
 import { onSnapshot } from "firebase/firestore";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "./redux/userSlice";
 import { Collection, Checkout, HomePage, ShopPage, SignIn } from "./pages";
 import { Route, Routes } from "react-router-dom";

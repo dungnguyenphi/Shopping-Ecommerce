@@ -1,15 +1,21 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { SHOP_DATA } from "../dummyData";
+import { terminate } from "firebase/firestore";
 
 const initialState = {
-  products: SHOP_DATA,
+  products: [],
 };
 
 const shopSlice = createSlice({
   name: "shop",
   initialState,
-  reducers: {},
+  reducers: {
+    updateShop: (state, action) => {
+      state.products = action.payload;
+    },
+  },
 });
+
+export const { updateShop } = shopSlice.actions;
 
 export default shopSlice.reducer;
 
