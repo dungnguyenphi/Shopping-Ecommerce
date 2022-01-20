@@ -24,4 +24,3 @@ export const ShopPage = () => {
     </div>
   );
 };
-export default withSpinner(ShopPage);
