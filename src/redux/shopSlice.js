@@ -1,8 +1,12 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { terminate } from "firebase/firestore";
-
+import {
+  createAsyncThunk,
+  createSelector,
+  createSlice,
+} from "@reduxjs/toolkit";
 const initialState = {
   products: [],
+  status: null,
+  errors: null,
 };
 
 const shopSlice = createSlice({

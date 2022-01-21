@@ -66,11 +66,15 @@ export const addCollectionAndDocuments = async (
 };
 
 export const useQueryCollection = async (collectionKey) => {
-  const q = query(collection(db, collectionKey));
-  const querySnapshot = await getDocs(q);
-  let result = [];
-  querySnapshot.forEach((doc) => {
-    result.push({ id: doc.id, ...doc.data() });
-  });
-  return result;
+  try {
+    const q = query(collection(db, collectionKey));
+    const querySnapshot = await getDocs(q);
+    let result = [];
+    querySnapshot.forEach((doc) => {
+      result.push({ id: doc.id, ...doc.data() });
+    });
+    return result;
+  } catch (e) {
+    return e;
+  }
 };
