@@ -11,6 +11,10 @@ export const CheckoutContainer = styled.div`
     margin-left: auto;
     margin-top: 50px;
   }
+  @media screen and (max-width: 800px) {
+    width: auto;
+    padding: 10px;
+  }
 `;
 
 export const CheckoutHeader = styled.div`
